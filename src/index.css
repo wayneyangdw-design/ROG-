@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: #0b0b0b;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.rog-grid {
+  background-image: 
+    linear-gradient(rgba(255, 0, 50, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 50, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.rog-glow {
+  box-shadow: 0 0 15px rgba(255, 0, 50, 0.3);
+}
+
+.rog-border {
+  border: 1px solid rgba(255, 0, 50, 0.3);
+  position: relative;
+}
+
+.rog-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #ff0032;
+  border-left: 2px solid #ff0032;
+}
+
+.rog-border::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #ff0032;
+  border-right: 2px solid #ff0032;
+}
+
+.rog-scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 50, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.1;
+  position: fixed;
+  bottom: 100%;
+  left: 0;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% { bottom: 100%; }
+  100% { bottom: -100px; }
+}
+
